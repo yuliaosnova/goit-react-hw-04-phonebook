@@ -1,21 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import Form from './Form/Form';
 import ContactList from './ContactList/ContactsList';
 import Filter from './Filter/Filter';
 import css from './App.module.css';
 import initialContacts from './assets/contacts';
+import useLocalStorage from 'hooks/useLocalStorage';
 
-const useLocalStorage = (key, defaultValue) => {
-  const [state, setState] = useState(() => {
-    return JSON.parse(window.localStorage.getItem(key)) ?? defaultValue;
-  });
-
-  useEffect(() => {
-    window.localStorage.setItem(key, JSON.stringify(state));
-  }, [key, state]);
-  return [state, setState];
-};
 
 export default function App() {
   const [contacts, setContacts] = useLocalStorage('contacts', initialContacts);
