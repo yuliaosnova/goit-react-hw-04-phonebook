@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-// import { nanoid } from 'nanoid';
 import css from './Form.module.css';
 
 export default function Form({ onSubmit, contacts }) {
@@ -31,7 +30,6 @@ export default function Form({ onSubmit, contacts }) {
     } else {
       onSubmit({ name, number });
     }
-    // onSubmit({name, number});
 
     reset();
   };
